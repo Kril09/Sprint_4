@@ -20,8 +20,7 @@ public abstract class BaseUITest {
     }
 
     @After
-    public void teardown(){
+    public void teardown() {
         webDriver.quit();
     }
-
 }

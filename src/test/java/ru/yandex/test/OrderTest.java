@@ -8,126 +8,131 @@ import ru.yandex.OrderStatusFinal;
 import ru.yandex.OrderStatusPage;
 import ru.yandex.OrderStatusPageTwo;
 
-
-public class OrderTest extends BaseUITest{
+public class OrderTest extends BaseUITest {
 
     @Test
-    public void orderBySam0(){ //тест с заказом по верхней кнопке
-        MainPage mainPage = new MainPage(webDriver);
-        mainPage.clickOrderStartButton();
-
-        OrderStatusPage orderStatusPage = new OrderStatusPage(webDriver);
+    public void orderBySam0() { //тест с заказом по верхней кнопке
         String newNameUser = "Аллолоша";
-        orderStatusPage.sendName(newNameUser);
         String newSurname = "Кукошовна";
-        orderStatusPage.sendSurname(newSurname);
         String newUserAddress = "Москоу стрит";
-        orderStatusPage.sendAddress(newUserAddress);
-        orderStatusPage.clickInputList();
-        orderStatusPage.clickElementList();
         String newNumberUser = "12312312399";
-        orderStatusPage.sendNumber(newNumberUser);
-        orderStatusPage.clickButtonNext();
-
-        OrderStatusPageTwo orderStatusPageTwo = new OrderStatusPageTwo(webDriver);
         String newDataOrder = "20.02.2023";
-        orderStatusPageTwo.sendData(newDataOrder);
-        orderStatusPageTwo.clickRent();
-        orderStatusPageTwo.clickCheckBoxBlack();
-        orderStatusPageTwo.clickOrderTwo();
 
-        OrderStatusFinal orderStatusFinal = new OrderStatusFinal(webDriver);
-        orderStatusFinal.clickYes();
-        boolean isDisplayed = webDriver.findElement(By.xpath("//div[text()='Заказ оформлен']")).isDisplayed();
-        Assert.assertTrue("Заказ оформлен", isDisplayed);
-    }
-    @Test
-    public void orderBySam1(){ //тест с заказом по нижней кнопке
-        MainPage mainPage = new MainPage(webDriver);
-        mainPage.clickOrderStartButtonTwo();
-
-        OrderStatusPage orderStatusPage = new OrderStatusPage(webDriver);
-        String newNameUser = "Ваня";
-        orderStatusPage.sendName(newNameUser);
-        String newSurname = "Иванов";
-        orderStatusPage.sendSurname(newSurname);
-        String newUserAddress = "Петровка стрит";
-        orderStatusPage.sendAddress(newUserAddress);
-        orderStatusPage.clickInputList();
-        orderStatusPage.clickElementList();
-        String newNumberUser = "99988899977";
-        orderStatusPage.sendNumber(newNumberUser);
-        orderStatusPage.clickButtonNext();
-
-        OrderStatusPageTwo orderStatusPageTwo = new OrderStatusPageTwo(webDriver);
-        String newDataOrder = "22.04.2023";
-        orderStatusPageTwo.sendData(newDataOrder);
-        orderStatusPageTwo.clickRent();
-        orderStatusPageTwo.clickCheckBoxBlack();
-        orderStatusPageTwo.clickOrderTwo();
-
-        OrderStatusFinal orderStatusFinal = new OrderStatusFinal(webDriver);
-        orderStatusFinal.clickYes();
-        boolean isDisplayed = webDriver.findElement(By.xpath("//div[text()='Заказ оформлен']")).isDisplayed();
-        Assert.assertTrue("Заказ оформлен", isDisplayed);
-    }
-
-
-    @Test
-    public void orderBySam2(){ //тест с заказом по верхней кнопке
-        MainPage mainPage = new MainPage(webDriver);
+        MainPage mainPage = new MainPage(webDriver); // заказ на главной странице
         mainPage.clickOrderStartButton();
 
-        OrderStatusPage orderStatusPage = new OrderStatusPage(webDriver);
-        String newNameUser = "Алла";
+        OrderStatusPage orderStatusPage = new OrderStatusPage(webDriver); // заполнение данных на первой странице
         orderStatusPage.sendName(newNameUser);
-        String newSurname = "Борисовна";
         orderStatusPage.sendSurname(newSurname);
-        String newUserAddress = "Тель-авив стрит";
         orderStatusPage.sendAddress(newUserAddress);
         orderStatusPage.clickInputList();
-        orderStatusPage.clickElementList1();
-        String newNumberUser = "12312312300";
+        orderStatusPage.clickElementList();
         orderStatusPage.sendNumber(newNumberUser);
         orderStatusPage.clickButtonNext();
 
-        OrderStatusPageTwo orderStatusPageTwo = new OrderStatusPageTwo(webDriver);
-        String newDataOrder = "13.06.2023";
+        OrderStatusPageTwo orderStatusPageTwo = new OrderStatusPageTwo(webDriver); // заполнение данных на второй странице
         orderStatusPageTwo.sendData(newDataOrder);
-        orderStatusPageTwo.clickRent1();
-        orderStatusPageTwo.clickCheckBoxGrey();
+        orderStatusPageTwo.clickRent();
+        orderStatusPageTwo.clickCheckBoxBlack();
         orderStatusPageTwo.clickOrderTwo();
 
-        OrderStatusFinal orderStatusFinal = new OrderStatusFinal(webDriver);
+        OrderStatusFinal orderStatusFinal = new OrderStatusFinal(webDriver); // подтверждение заказа
         orderStatusFinal.clickYes();
         boolean isDisplayed = webDriver.findElement(By.xpath("//div[text()='Заказ оформлен']")).isDisplayed();
         Assert.assertTrue("Заказ оформлен", isDisplayed);
     }
+
     @Test
-    public void orderBySam3(){ //тест с заказом по нижней кнопке
-        MainPage mainPage = new MainPage(webDriver);
+    public void orderBySam1() { //тест с заказом по нижней кнопке
+        String newNameUser = "Ваня";
+        String newSurname = "Иванов";
+        String newUserAddress = "Петровка стрит";
+        String newNumberUser = "99988899977";
+        String newDataOrder = "22.04.2023";
+
+        MainPage mainPage = new MainPage(webDriver); // заказ на главной странице
         mainPage.clickOrderStartButtonTwo();
-        OrderStatusPage orderStatusPage = new OrderStatusPage(webDriver);
-        String newNameUser = "Максим";
+
+        OrderStatusPage orderStatusPage = new OrderStatusPage(webDriver); // заполнение данных на первой странице
         orderStatusPage.sendName(newNameUser);
-        String newSurname = "Ли";
         orderStatusPage.sendSurname(newSurname);
-        String newUserAddress = "Лубянка стрит";
         orderStatusPage.sendAddress(newUserAddress);
         orderStatusPage.clickInputList();
-        orderStatusPage.clickElementList1();
-        String newNumberUser = "99988899967";
+        orderStatusPage.clickElementList();
         orderStatusPage.sendNumber(newNumberUser);
         orderStatusPage.clickButtonNext();
 
-        OrderStatusPageTwo orderStatusPageTwo = new OrderStatusPageTwo(webDriver);
-        String newDataOrder = "23.04.2024";
+        OrderStatusPageTwo orderStatusPageTwo = new OrderStatusPageTwo(webDriver); // заполнение данных на второй странице
+        orderStatusPageTwo.sendData(newDataOrder);
+        orderStatusPageTwo.clickRent();
+        orderStatusPageTwo.clickCheckBoxBlack();
+        orderStatusPageTwo.clickOrderTwo();
+
+        OrderStatusFinal orderStatusFinal = new OrderStatusFinal(webDriver); // подтверждение заказа
+        orderStatusFinal.clickYes();
+        boolean isDisplayed = webDriver.findElement(By.xpath("//div[text()='Заказ оформлен']")).isDisplayed();
+        Assert.assertTrue("Заказ оформлен", isDisplayed);
+    }
+
+    @Test
+    public void orderBySam2() { //тест с заказом по верхней кнопке
+        String newNameUser = "Алла";
+        String newSurname = "Борисовна";
+        String newUserAddress = "Тель-авив стрит";
+        String newNumberUser = "12312312300";
+        String newDataOrder = "13.06.2023";
+
+        MainPage mainPage = new MainPage(webDriver); // заказ на главной странице
+        mainPage.clickOrderStartButton();
+
+        OrderStatusPage orderStatusPage = new OrderStatusPage(webDriver); // заполнение данных на первой странице
+        orderStatusPage.sendName(newNameUser);
+        orderStatusPage.sendSurname(newSurname);
+        orderStatusPage.sendAddress(newUserAddress);
+        orderStatusPage.clickInputList();
+        orderStatusPage.clickElementList1();
+        orderStatusPage.sendNumber(newNumberUser);
+        orderStatusPage.clickButtonNext();
+
+        OrderStatusPageTwo orderStatusPageTwo = new OrderStatusPageTwo(webDriver); // заполнение данных на второй странице
         orderStatusPageTwo.sendData(newDataOrder);
         orderStatusPageTwo.clickRent1();
         orderStatusPageTwo.clickCheckBoxGrey();
         orderStatusPageTwo.clickOrderTwo();
 
-        OrderStatusFinal orderStatusFinal = new OrderStatusFinal(webDriver);
+        OrderStatusFinal orderStatusFinal = new OrderStatusFinal(webDriver); // подтверждение заказа
+        orderStatusFinal.clickYes();
+        boolean isDisplayed = webDriver.findElement(By.xpath("//div[text()='Заказ оформлен']")).isDisplayed();
+        Assert.assertTrue("Заказ оформлен", isDisplayed);
+    }
+
+    @Test
+    public void orderBySam3() { //тест с заказом по нижней кнопке
+        String newNameUser = "Максим";
+        String newSurname = "Ли";
+        String newNumberUser = "99988899967";
+        String newUserAddress = "Лубянка стрит";
+        String newDataOrder = "23.04.2024";
+
+        MainPage mainPage = new MainPage(webDriver); // заказ на главной странице
+        mainPage.clickOrderStartButtonTwo();
+
+        OrderStatusPage orderStatusPage = new OrderStatusPage(webDriver); // заполнение данных на первой странице
+        orderStatusPage.sendName(newNameUser);
+        orderStatusPage.sendSurname(newSurname);
+        orderStatusPage.sendAddress(newUserAddress);
+        orderStatusPage.clickInputList();
+        orderStatusPage.clickElementList1();
+        orderStatusPage.sendNumber(newNumberUser);
+        orderStatusPage.clickButtonNext();
+
+        OrderStatusPageTwo orderStatusPageTwo = new OrderStatusPageTwo(webDriver); // заполнение данных на второй странице
+        orderStatusPageTwo.sendData(newDataOrder);
+        orderStatusPageTwo.clickRent1();
+        orderStatusPageTwo.clickCheckBoxGrey();
+        orderStatusPageTwo.clickOrderTwo();
+
+        OrderStatusFinal orderStatusFinal = new OrderStatusFinal(webDriver); // подтверждение заказа
         orderStatusFinal.clickYes();
         boolean isDisplayed = webDriver.findElement(By.xpath("//div[text()='Заказ оформлен']")).isDisplayed();
         Assert.assertTrue("Заказ оформлен", isDisplayed);
